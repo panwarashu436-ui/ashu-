@@ -1,0 +1,1205 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ashu Panwar | Digital Universe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cyan: #00eaff;
+    --purple: #a855ff;
+    --pink: #ff38dc;
+    --bg: #030511;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* GALAXY BACKGROUND */
+
+.space {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+        radial-gradient(ellipse at 78% 28%,
+        #172c70 0%, transparent 36%),
+        radial-gradient(ellipse at 35% 65%,
+        #320d57 0%, transparent 38%),
+        linear-gradient(145deg, #02030c, #07091d, #030511);
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.aurora {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: 0;
+    right: -250px;
+    background: #4525ff;
+    filter: blur(180px);
+    opacity: .19;
+    border-radius: 50%;
+    z-index: -1;
+    animation: aurora 9s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+    to {
+        transform: translate(-200px, 150px) scale(1.4);
+        opacity: .3;
+    }
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(3, 5, 17, .76);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+nav {
+    max-width: 1450px;
+    min-height: 78px;
+    margin: auto;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    gap: 27px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #dce3ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+.hire-btn {
+    color: white;
+    text-decoration: none;
+    padding: 11px 23px;
+    border-radius: 40px;
+    border: 1px solid var(--purple);
+    box-shadow: 0 0 15px #a855ff55;
+    transition: .3s;
+}
+
+.hire-btn:hover {
+    background: var(--purple);
+    box-shadow: 0 0 30px var(--purple);
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1450px;
+    min-height: 610px;
+    margin: auto;
+    padding: 90px 7% 50px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.intro {
+    position: relative;
+    z-index: 2;
+    animation: enter 1s ease both;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 17px;
+    border: 1px solid #00eaff80;
+    background: #00eaff0c;
+    border-radius: 40px;
+    color: #dffcff;
+    font-size: 13px;
+    margin-bottom: 27px;
+    box-shadow: 0 0 18px #00eaff15;
+}
+
+.badge i {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 12px var(--cyan);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: .25; }
+}
+
+h1 {
+    font-size: clamp(44px, 6vw, 82px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+.gradient {
+    display: inline-block;
+    background: linear-gradient(
+        90deg, var(--cyan), #638cff, var(--pink), var(--purple)
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+    to { background-position: 250% center; }
+}
+
+.role {
+    margin-top: 22px;
+    font-size: clamp(19px, 2.5vw, 28px);
+    font-weight: 600;
+}
+
+.role span {
+    color: var(--cyan);
+}
+
+.intro-text {
+    margin-top: 17px;
+    max-width: 600px;
+    color: #b9c3e2;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 23px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .35s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(100deg, #d52bff, #554cff, #00bfff);
+    box-shadow: 0 0 28px #914aff55;
+}
+
+.btn-outline {
+    border: 1px solid #a7b7ff80;
+    background: #ffffff05;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 30px #6b65ff88;
+}
+
+/* CINEMATIC MOON */
+
+.universe {
+    min-height: 430px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    isolation: isolate;
+}
+
+.moon {
+    position: absolute;
+    width: clamp(190px, 26vw, 310px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    top: 10px;
+    right: 9%;
+    background:
+        radial-gradient(circle at 30% 25%,
+        #ffffff 0%, #b9d9ff 13%, #7889e9 37%,
+        #393c9c 65%, #10133e 85%);
+    box-shadow:
+        0 0 35px #8da7ff99,
+        0 0 90px #6457ff70,
+        inset -22px -18px 45px #050720;
+    animation: moonFloat 7s ease-in-out infinite;
+}
+
+.moon::before {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 25% 30%,
+        #fff8 0 4%, transparent 5%),
+        radial-gradient(circle at 65% 60%,
+        #323a8a 0 8%, transparent 9%),
+        radial-gradient(circle at 38% 68%,
+        #323a8a 0 6%, transparent 7%),
+        radial-gradient(circle at 70% 25%,
+        #fff5 0 5%, transparent 6%);
+    opacity: .65;
+}
+
+@keyframes moonFloat {
+    50% { transform: translateY(-16px); }
+}
+
+.orbit {
+    position: absolute;
+    width: 115%;
+    height: 100px;
+    top: 47%;
+    left: -7%;
+    border: 2px solid transparent;
+    border-top-color: #b442ff;
+    border-bottom-color: #00d9ff;
+    border-radius: 50%;
+    transform: rotate(-12deg);
+    filter: drop-shadow(0 0 9px #a34dff);
+    animation: orbitMove 9s linear infinite;
+}
+
+@keyframes orbitMove {
+    to { transform: rotate(348deg); }
+}
+
+/* PERSON */
+
+.person {
+    position: absolute;
+    width: 130px;
+    height: 200px;
+    bottom: 37px;
+    right: 25%;
+    z-index: 3;
+    filter: drop-shadow(0 0 20px #2e35b7aa);
+    animation: personFloat 5s ease-in-out infinite;
+}
+
+.person .head {
+    position: absolute;
+    width: 53px;
+    height: 65px;
+    top: 0;
+    left: 38px;
+    border-radius: 45% 45% 40% 40%;
+    background: linear-gradient(120deg, #14152f, #03040d);
+    box-shadow: 0 -7px 0 #03040b;
+}
+
+.person .body {
+    position: absolute;
+    width: 115px;
+    height: 130px;
+    left: 7px;
+    top: 57px;
+    border-radius: 48px 48px 14px 14px;
+    background: linear-gradient(120deg, #1a1d43, #070815 70%);
+    border: 1px solid #6465ff30;
+}
+
+.person .body::after {
+    content: "✧";
+    position: absolute;
+    top: 32px;
+    left: 41px;
+    font-size: 32px;
+    color: #9a9bff;
+    text-shadow: 0 0 15px #626bff;
+}
+
+.rock {
+    position: absolute;
+    width: 110%;
+    height: 90px;
+    bottom: 15px;
+    left: -5%;
+    z-index: 4;
+    background: linear-gradient(160deg, #272c60, #090a1b 65%);
+    clip-path: polygon(0 100%, 15% 45%, 25% 58%,
+    43% 15%, 56% 45%, 72% 25%, 85% 60%, 100% 100%);
+}
+
+@keyframes personFloat {
+    50% { transform: translateY(-6px); }
+}
+
+/* STATS */
+
+.stats {
+    max-width: 1300px;
+    margin: 0 auto 80px;
+    padding: 26px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #a58aff55;
+    border-radius: 25px;
+    background: linear-gradient(120deg,
+        #17132cdd, #101a37dd, #1d1235dd);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 35px #694dff12;
+}
+
+.stat {
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid #ffffff25;
+}
+
+.stat:last-child {
+    border: 0;
+}
+
+.stat-icon {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.stat h3 {
+    font-size: 23px;
+    color: white;
+}
+
+.stat p {
+    font-size: 12px;
+    color: #b7c1e4;
+    margin-top: 5px;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 75px 6%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    color: var(--pink);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+    font-size: clamp(32px, 5vw, 48px);
+}
+
+.section-heading p {
+    margin: 14px auto 0;
+    max-width: 600px;
+    line-height: 1.8;
+    color: #aeb9dc;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.terminal {
+    padding: 26px;
+    min-height: 270px;
+    border-radius: 22px;
+    background: #090d20;
+    border: 1px solid #7752ff77;
+    box-shadow: 0 0 35px #6747ff20;
+    overflow: hidden;
+}
+
+.terminal-top {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 28px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.red { background: #ff5f6d; }
+.yellow { background: #ffce58; }
+.green { background: #38e9a1; }
+
+.code {
+    color: #b5c8ff;
+    line-height: 2;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
+
+.code .blue { color: #52dfff; }
+.code .pink { color: #ed8bff; }
+.code .green-text { color: #7bffbf; }
+
+.about-text h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #b7c1dd;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.skill {
+    border: 1px solid #7459c766;
+    border-radius: 30px;
+    background: #ffffff07;
+    padding: 11px 16px;
+    color: #dce1ff;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.skill:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-3px);
+}
+
+/* PROJECTS */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+}
+
+.project-card {
+    border: 1px solid #ffffff1c;
+    background: linear-gradient(145deg, #15152cdd, #090c1ddd);
+    border-radius: 23px;
+    padding: 26px;
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), var(--pink));
+    transition: .5s;
+}
+
+.project-card:hover::before {
+    left: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-9px);
+    border-color: #845eff99;
+    box-shadow: 0 15px 40px #6445ff1b;
+}
+
+.project-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: #aeb8d8;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 75px;
+}
+
+.project-tag {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid #9b6bff55;
+    border-radius: 30px;
+    background:
+        radial-gradient(ellipse at top, #6e39ff25, transparent 65%),
+        #ffffff05;
+}
+
+.contact-box h2 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 18px;
+}
+
+.contact-box p {
+    color: #b7c1df;
+    line-height: 1.8;
+    margin-bottom: 27px;
+}
+
+footer {
+    padding: 30px 15px;
+    text-align: center;
+    border-top: 1px solid #ffffff12;
+    color: #919cbd;
+    font-size: 13px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 65px;
+    }
+
+    .universe {
+        min-height: 350px;
+    }
+
+    .moon {
+        right: 15%;
+        width: 230px;
+    }
+
+    .person {
+        right: 29%;
+        transform: scale(.85);
+        transform-origin: bottom;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hire-btn {
+        display: none;
+    }
+}
+
+@media(max-width: 520px) {
+    nav {
+        flex-direction: column;
+        gap: 16px;
+        padding: 15px 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 55px 6% 25px;
+    }
+
+    h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .universe {
+        min-height: 300px;
+        overflow: hidden;
+    }
+
+    .moon {
+        width: 190px;
+        right: 10%;
+    }
+
+    .person {
+        right: 23%;
+        transform: scale(.72);
+        transform-origin: bottom;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+        gap: 12px 0;
+    }
+
+    .stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .stat:nth-child(3),
+    .stat:nth-child(4) {
+        border-top: 1px solid #ffffff20;
+        padding-top: 18px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 55px 6%;
+    }
+
+    .actions .btn {
+        width: 100%;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="space"></div>
+<canvas id="stars"></canvas>
+<div class="aurora"></div>
+
+<header>
+    <nav>
+        <div class="logo">&lt;/&gt; ASHU<span>.</span></div>
+
+        <div class="nav-links">
+            <a href="#home">⌂ Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">&lt;/&gt; Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <a href="#contact" class="hire-btn">↗ Hire Me</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="intro">
+
+        <div class="badge">
+            <i></i> WELCOME TO MY DIGITAL UNIVERSE ✦
+        </div>
+
+        <h1>
+            Hi, I'm<br>
+            <span class="gradient">Ashu Panwar</span>
+        </h1>
+
+        <div class="role">
+            A Passionate <span id="typing">Developer</span> 🚀
+        </div>
+
+        <p class="intro-text">
+            I love turning creative ideas into amazing digital
+            experiences. Explore my projects, discover my world,
+            and let's build something extraordinary together.
+        </p>
+
+        <div class="actions">
+            <a href="#projects" class="btn btn-primary">
+                🚀 Explore My Projects →
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                ◉ Discover My World
+            </a>
+        </div>
+
+    </div>
+
+    <div class="universe" aria-label="Animated moon and space scene">
+
+        <div class="moon"></div>
+        <div class="orbit"></div>
+
+        <div class="person">
+            <div class="head"></div>
+            <div class="body"></div>
+        </div>
+
+        <div class="rock"></div>
+
+    </div>
+
+</section>
+
+<div class="stats reveal">
+
+    <div class="stat">
+        <div class="stat-icon">💻</div>
+        <h3>My Journey</h3>
+        <p>Learning & Building</p>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">🚀</div>
+        <h3>Big Dreams</h3>
+        <p>Future Projects</p>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">⭐</div>
+        <h3>Creative</h3>
+        <p>Ideas & Innovation</p>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">⚡</div>
+        <h3>Always</h3>
+        <p>Keep Learning</p>
+    </div>
+
+</div>
+
+<section class="section reveal" id="about">
+
+    <div class="section-heading">
+        <div class="eyebrow">✦ Get to know me</div>
+        <h2>About <span class="gradient">Me</span></h2>
+        <p>
+            Every great project starts with a curious mind
+            and the courage to create something new.
+        </p>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="terminal">
+            <div class="terminal-top">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+
+            <div class="code">
+                <span class="pink">class</span>
+                <span class="blue">AshuPanwar</span> {<br>
+
+                &nbsp;&nbsp;name =
+                <span class="green-text">"Ashu Panwar"</span>;<br>
+
+                &nbsp;&nbsp;passion =
+                <span class="green-text">"Technology"</span>;<br>
+
+                &nbsp;&nbsp;dream =
+                <span class="green-text">"Build the future"</span>;<br>
+
+                &nbsp;&nbsp;status =
+                <span class="green-text">"Learning..."</span>;<br>
+
+                &nbsp;&nbsp;<span class="pink">void</span>
+                createAmazingThings() {<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;keepLearning();<br>
+
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+        </div>
+
+        <div class="about-text">
+            <h3>Who Am I <span class="gradient">?</span></h3>
+
+            <p>
+                I'm Ashu Panwar, a technology enthusiast interested
+                in coding, website development, creative projects,
+                and artificial intelligence.
+
+                I enjoy learning new skills and transforming ideas
+                into real digital experiences.
+            </p>
+
+            <a href="#skills" class="btn btn-outline">
+                Explore My Skills →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section reveal" id="skills">
+
+    <div class="section-heading">
+        <div class="eyebrow">✦ My toolbox</div>
+        <h2>My <span class="gradient">Skills</span></h2>
+        <p>
+            Technologies I am exploring and using
+            to bring my ideas to life.
+        </p>
+    </div>
+
+    <div class="skills" style="justify-content:center;">
+        <div class="skill">☕ Java</div>
+        <div class="skill">🐍 Python</div>
+        <div class="skill">🌐 HTML & CSS</div>
+        <div class="skill">⚡ JavaScript</div>
+        <div class="skill">🤖 Artificial Intelligence</div>
+        <div class="skill">📱 App Development</div>
+        <div class="skill">🎮 Game Development</div>
+        <div class="skill">🧠 Problem Solving</div>
+    </div>
+
+</section>
+
+<section class="section reveal" id="projects">
+
+    <div class="section-heading">
+        <div class="eyebrow">✦ Things I'm creating</div>
+        <h2>Featured <span class="gradient">Projects</span></h2>
+        <p>
+            A collection of ideas, experiments, and
+            digital experiences.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        <article class="project-card">
+            <div class="project-icon">🌌</div>
+            <h3>Cinematic Website</h3>
+            <p>
+                A futuristic personal website featuring
+                glowing effects, animations, and responsive design.
+            </p>
+            <span class="project-tag">HTML · CSS · JavaScript</span>
+        </article>
+
+        <article class="project-card">
+            <div class="project-icon">🏎️</div>
+            <h3>Car Racing Game</h3>
+            <p>
+                A gaming project exploring racing mechanics,
+                movement, controls, and exciting gameplay.
+            </p>
+            <span class="project-tag">Java · Game Development</span>
+        </article>
+
+        <article class="project-card">
+            <div class="project-icon">🤖</div>
+            <h3>Jarvis AI Assistant</h3>
+            <p>
+                An assistant concept designed to explore
+                voice commands and smart features.
+            </p>
+            <span class="project-tag">AI · Voice · Automation</span>
+        </article>
+
+    </div>
+
+</section>
+
+<section class="section reveal" id="contact">
+
+    <div class="contact-box">
+
+        <div class="eyebrow">✦ Let's create something</div>
+
+        <h2>
+            Have a <span class="gradient">Big Idea?</span>
+        </h2>
+
+        <p>
+            Have a project in mind? Want to collaborate?
+            Let's connect and make something extraordinary.
+        </p>
+
+        <a href="mailto:yourname@example.com"
+           class="btn btn-primary">
+            ✉ Get In Touch
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>Designed with creativity ✦ © 2026 Ashu Panwar</p>
+    <p style="margin-top:8px;">Exploring the universe, one line of code at a time.</p>
+</footer>
+
+<script>
+
+/* ANIMATED STARS */
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+let width = 0;
+let height = 0;
+
+function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    stars = Array.from(
+        { length: Math.min(180, Math.floor(width / 5)) },
+        () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 1.5 + .3,
+            speed: Math.random() * .35 + .08,
+            alpha: Math.random() * .8 + .2
+        })
+    );
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const star of stars) {
+        star.y -= star.speed;
+
+        if (star.y < 0) {
+            star.y = height;
+            star.x = Math.random() * width;
+        }
+
+        const flicker =
+            star.alpha * (.65 + Math.sin(Date.now() * .001 + star.x) * .35);
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+
+        ctx.fillStyle = `rgba(210,225,255,${flicker})`;
+        ctx.fill();
+    }
+
+    requestAnimationFrame(animateStars);
+}
+
+resizeCanvas();
+animateStars();
+
+window.addEventListener("resize", resizeCanvas);
+
+
+/* TYPING ANIMATION */
+
+const words = [
+    "Developer",
+    "Creator",
+    "Tech Explorer",
+    "Dreamer"
+];
+
+const typingElement = document.getElementById("typing");
+
+let wordIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+    const word = words[wordIndex];
+
+    if (deleting) {
+        letterIndex--;
+    } else {
+        letterIndex++;
+    }
+
+    typingElement.textContent = word.substring(0, letterIndex);
+
+    let delay = deleting ? 55 : 105;
+
+    if (!deleting && letterIndex === word.length) {
+        deleting = true;
+        delay = 1300;
+    } else if (deleting && letterIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 350;
+    }
+
+    setTimeout(typeEffect, delay);
+}
+
+typeEffect();
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    { threshold: 0.12 }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
+```
